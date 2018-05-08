@@ -3,7 +3,6 @@ from django.db import models
 # Create your models here.
 from utils.models import BaseModel
 
-
 from django.db import models
 from utils.models import BaseModel
 

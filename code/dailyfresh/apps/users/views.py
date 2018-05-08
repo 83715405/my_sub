@@ -141,7 +141,7 @@ class UserAddressView(LoginRequiredView, View):
 class UserInfoView(LoginRequiredView, View):
     def get(self, request):
         # 获取strict_redis对象
-        strict_redis = get_redis_connection() # type: strict_redis
+        strict_redis = get_redis_connection()  # type: strict_redis
         key = 'history_%s' % request.user.id
         # 0, 4 表示之获取前五个元素
         sku_ids = strict_redis.lrange(key, 0, 4)

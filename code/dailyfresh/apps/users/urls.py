@@ -19,5 +19,4 @@ urlpatterns = [
     # 用户中心 127.0.0.1:8000/users
     url(r'^$', views.UserInfoView.as_view(), name='info')
 
-
 ]

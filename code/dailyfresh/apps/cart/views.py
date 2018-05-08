@@ -26,7 +26,7 @@ class AddCartView(View):
         except GoodsSKU.DoesNotExist:
             return JsonResponse({'code': 3, 'errmsg': '商品id不存在'})
         try:
-            count =int(count)
+            count = int(count)
         except:
             return JsonResponse({'code': 3, 'errmsg': '商品id不存在'})
 
@@ -63,10 +63,10 @@ class CartInfoView(View):
         # 从redis中查询出当前登陆用户的商品
         # cart_1 = {1:2, 2:3}
 
-        strict_redis = get_redis_connection() # type StrictRedis
+        strict_redis = get_redis_connection()  # type StrictRedis
         key = 'cart_%s' % user_id
         # 获取所有的键(商品id) 列表(bytes)
-        sku_ids =strict_redis.hkeys(key)
+        sku_ids = strict_redis.hkeys(key)
         for sku_id in sku_ids:
             sku = GoodsSKU.objects.get(id=int(sku_id))  # bytes
             count = strict_redis.hget(key, sku_id)  # bytes
@@ -85,6 +85,8 @@ class CartInfoView(View):
             'total_amount': total_amount,
         }
         return render(request, 'cart.html', context)
+
+
 class CartUpdateView(View):
     def post(self, request):
         '''修改商品数量'''

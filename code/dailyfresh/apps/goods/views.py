@@ -75,7 +75,7 @@ class DetailView(BaseCartView):
 
         # 保存用户的浏览记录
         if request.user.is_authenticated():
-            strict_redis = get_redis_connection() # StrictRedis
+            strict_redis = get_redis_connection()  # StrictRedis
             key = 'history_%s' % request.user.id
             strict_redis.lrem(key, 0, sku_id)
             strict_redis.lpush(key, sku_id)
@@ -118,6 +118,7 @@ class ListView(BaseCartView):
         else:
             skus = GoodsSKU.objects.filter(category=category)
             sort = 'default'
+        # 分页内容
         # 分页显示
         # 参数1:一页显示多少条数据
         # 参数2 要分页的数据

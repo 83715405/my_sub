@@ -1,6 +1,7 @@
 from haystack import indexes
 from apps.goods.models import GoodsSKU
 
+
 class GoodsSKUIndex(indexes.SearchIndex, indexes.Indexable):
     """模型索引类： 针对哪张表的哪些数据创建索引"""
 

@@ -34,9 +34,10 @@ class User(BaseModel, AbstractUser):
         对字典数据加密,
         :return: 加密后的结果
         '''
-        s = TimedJSONWebSignatureSerializer(settings.SECRET_KEY, 60*60*24)
+        s = TimedJSONWebSignatureSerializer(settings.SECRET_KEY, 60 * 60 * 24)
         datas = s.dumps({"confirm": self.id})  # type: bytes
         return datas.decode()
+
     class Meta(object):
         # 指定表名
         db_table = 'df_user'

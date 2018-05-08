@@ -40,19 +40,19 @@
             <div class="pagenation">
                 {% if page.has_previous %}
                     {# /search?a=草莓&page=2 #}
-                     <a href="/search?q={{ query }}&page={{ page.previous_page_number }}">
+                    <a href="/search?q={{ query }}&page={{ page.previous_page_number }}">
                         <上一页
                     </a>
                 {% endif %}
 
                 {% for index in paginator.page_range %}
                     <a href="/search?q={{ query }}&page={{ index }}"
-                       {% if index == page.number %}class="active"{% endif %} >{{ index }}</a>
+                       {% if index == page.number %}class="active"{% endif %}>{{ index }}</a>
                 {% endfor %}
 
 
                 {% if page.has_next %}
-                     <a href="/search?q={{ query }}&page={{ page.next_page_number }}">
+                    <a href="/search?q={{ query }}&page={{ page.next_page_number }}">
                         下一页>
                     </a>
                 {% endif %}

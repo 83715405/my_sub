@@ -71,7 +71,7 @@
             <div class="total">总价：<em>16.80元</em></div>
             <div class="operate_btn">
                 <a href="javascript:;" class="buy_btn">立即购买</a>
-                <a href="javascript:;" class="add_cart"  sku_id="{{ sku.id }}" id="add_cart">加入购物车</a>
+                <a href="javascript:;" class="add_cart" sku_id="{{ sku.id }}" id="add_cart">加入购物车</a>
             </div>
         </div>
     </div>
@@ -162,7 +162,7 @@
             // 获取当前商品数量
             var count = $('.num_show').val();
             //判断内容合法性: 非数字,空字符串,负数
-            if (isNaN(count)|| count.trim().length == 0||parseInt(count) < 1) {
+            if (isNaN(count) || count.trim().length == 0 || parseInt(count) < 1) {
                 // 不合法 重置为1
                 count = 1;
             }

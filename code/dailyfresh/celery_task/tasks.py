@@ -14,6 +14,7 @@ from dailyfresh import settings
 
 app = Celery('dailyfresh', broker='redis://127.0.0.1:6379/1')
 
+
 @app.task
 def send_active_email(user, email, token):
     subject = '天天生鲜激活邮件'  # 标题
@@ -27,6 +28,8 @@ def send_active_email(user, email, token):
                    'http://127.0.0.1:8000/users/active/%s</a>' \
                    % (user, token, token)
     send_mail(subject, message, from_mail, recipient_list, html_message=html_message)
+
+
 @app.task
 def generate_static_index_page():
     sleep(2)
