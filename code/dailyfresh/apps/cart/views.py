@@ -85,8 +85,6 @@ class CartInfoView(View):
             'total_amount': total_amount,
         }
         return render(request, 'cart.html', context)
-
-
 class CartUpdateView(View):
     def post(self, request):
         '''修改商品数量'''
